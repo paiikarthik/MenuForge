@@ -1,37 +1,28 @@
-# MenuForge — Local AI Menu Studio for Independent Restaurants
+*This is a submission for the [Hacktoberfest Open-Source AI Challenge Week 2: Side Hustle](https://dev.to/challenges/hacktoberfest-week2-2026-10-12)*
 
-**Challenge:** [Hacktoberfest Open-Source AI Challenge: Week 3 — Side Hustle](https://dev.to/challenges/hacktoberfest-week3-2026-10-19)  
-**Window:** Oct 19–25, 2026  
-**Tags:** `#devchallenge`, `#hacktoberfest`, `#ai`, `#opensource`
+## What I Built
 
----
+**MenuForge** is a local-first AI menu studio for independent, immigrant-owned, and neighborhood restaurants.
 
-## 🍽️ What I Built
+Small neighborhood eateries—from Mangalorean curry houses to Oaxacan taquerias, Vietnamese bánh mì counters, and Sichuan noodle bars—struggle with a frustrating problem:
+1. **Generic AI & translation tools flatten heritage:** Tools like Google Translate or generic ChatGPT prompts dumb down authentic dishes (*Kori Gassi* becomes "chicken curry", *Mole Poblano* becomes "chocolate sauce stew", and *Mapo Tofu* becomes "bean curd in chili"). This erases culinary pride, heritage, and artisan pricing power.
+2. **High waitstaff turnover causes dining room chaos:** New servers mispronounce traditional names, fumble when diners ask *"What does this taste like?"*, and have no idea if there are hidden allergens in the prep.
+3. **Allergen liabilities:** Hand-written specials boards frequently miss hidden allergens (ghee, sesame, crustacean paste, tree nuts).
+4. **Cloud API token economics kill micro-businesses:** Paying $0.05–$0.12 every time a chef updates a seasonal special makes running a small $15/month software tool completely unprofitable.
 
-**MenuForge** is a local-first AI menu studio designed for independent, immigrant-owned, and heritage restaurants.
+### Who Would Pay For It?
+Independent ethnic restaurant owners, food-truck operators, and bistro managers who rotate specials and need polished, multilingual menu assets without paying a translation agency hundreds of dollars.
 
-Small neighborhood eateries—from Mangalorean curry houses to Oaxacan taquerias, Vietnamese bánh mì counters, and Sichuan noodle bars—struggle with a frustrating dilemma:
-- Professional translation agencies charge hundreds of dollars per seasonal menu update.
-- Generic cloud translation tools (Google Translate / generic ChatGPT wrappers) completely strip away culinary identity—flattening artisan dishes like *Kori Gassi* into "chicken curry", *Mole Poblano* into "chocolate sauce stew", or *Mapo Tofu* into "bean curd in chili".
-- Server turnover is high: new waitstaff mispronounce traditional names, cannot answer diners' questions about hidden allergens (dairy, tree nuts, shellfish), and fail to upsell beverage pairings.
-
-**MenuForge** solves this with a privacy-first, local tool that runs on open-weight models via **Ollama**.
-
-A chef or operator inputs their dish ticket (dish name in the source language, key ingredients, culinary story, known allergens, and an optional plating photo). MenuForge instantly crafts:
-1. **Heritage-Preserving Bilingual Menu Cards:** Retains cultural proper nouns with evocative descriptions for printed menus and short punchy blurbs for chalkboards.
-2. **Server Pronunciation Guide & Audio:** Simple phonetic spelling (`KO-ri GAH-see`) plus an interactive 🔊 **"Listen"** audio speech button for training servers before the dinner shift.
-3. **Automated Allergen & Dietary Safety Tagging:** Flags allergens (dairy, nuts, shellfish, wheat, soy, sesame) and highlights dietary suitability (Vegan, Gluten-Free, Halal-friendly).
-4. **Print Studio:**
-   - **Foldable Table Tent Stands (4" x 6"):** Two-sided table cards featuring the dish story, pricing, translation, and an embedded SVG QR code.
-   - **Waitstaff Shift Pocket Cards (3" x 5"):** Pocket cheat sheets for pre-shift lineups (pronunciation, 15-second elevator pitch, allergen hazards, and drink upsells).
-   - **Full Restaurant Menu Print Layout:** Multi-course, print-ready restaurant menu with elegant serif typography.
-5. **Local SQLite Menu Catalog:** Stores all dishes on localhost with course categorization, pricing, and 1-click JSON/Markdown export for POS systems (Square, Toast, Clover).
+**The Side-Hustle Blueprint:**
+- **$49 One-Time Setup:** Digitize 20–25 core dishes into bilingual cards, generate waitstaff pocket flashcards, and create QR table tent stands.
+- **$15/Month Retainer:** Weekly specials updates, blackboard chalk copy, and seasonal menu rotation.
+- **Unit Economics:** Servicing 20 local restaurants yields **$300/month recurring revenue** with virtually **$0 hosting or token expenses** thanks to local open weights.
 
 ---
 
-## 💻 Demo & Quick Start
+## Demo
 
-You can run MenuForge completely offline in under 60 seconds:
+You can run MenuForge completely offline on your own machine in under 60 seconds:
 
 ```bash
 # 1. Clone & install dependencies
@@ -49,24 +40,41 @@ python -m menuforge
 
 Open **`http://127.0.0.1:8765`** in your browser.
 
-- Click on any authentic sample pill (e.g., **Kori Gassi**, **Mole Poblano**, **Bánh Mì Đặc Biệt**, **Mapo Tofu**, **Doro Wat**, or **Gua Bao**).
-- Click **Forge Menu Cards**.
-- Click the 🔊 **"Listen"** button to hear the server pronunciation guide spoken aloud!
-- Click **🖨️ Print Table Tent Stand** to preview the foldable two-sided table card with generated QR code.
-- Scroll down to the **Restaurant Menu Catalog** to view all saved dishes and export your full menu as JSON or Markdown.
+### Interactive Tour:
+1. Click on any authentic sample pill:
+   - 🍛 **Kori Gassi** (Coastal Karnataka / Mangalorean)
+   - 🌶️ **Mole Poblano** (Puebla, Mexico)
+   - 🥖 **Bánh Mì Đặc Biệt** (Saigon Street Food)
+   - 🍲 **Mapo Tofu (麻婆豆腐)** (Sichuan / Chengdu)
+   - 🍗 **Doro Wat** (Ethiopian / Addis Ababa)
+   - 🥟 **Gua Bao (割包)** (Taiwanese Night Market)
+2. Click **Forge Menu Cards**.
+3. Click the 🔊 **"Listen"** button next to the server pronunciation guide to hear the phonetics spoken aloud via the browser's Web Speech API.
+4. Click **🖨️ Table Tent** to preview the foldable 4" x 6" table stand card with front culinary blurb, back translation, and a real, embedded SVG QR code.
+5. Scroll down to the **Restaurant Menu Catalog** to filter by course (Starters, Mains, Street Bites, Specials) and export the full menu to JSON or Markdown for POS systems (Square, Toast, Clover).
 
-*Note for reviewers without Ollama:* MenuForge includes an embedded, zero-download offline culinary fixture engine. If Ollama is not installed or running, checking **"Force demo engine"** (or letting it auto-detect) allows you to test every feature instantly with zero model downloads.
+*(Reviewer note: MenuForge includes an embedded, zero-download offline culinary fixture engine. If Ollama is not installed or running, checking "Force demo engine" allows you to test every feature instantly with zero model downloads.)*
 
 ---
 
-## 🛠️ How I Built It
+## Code
+
+{% github paiikarthik/MenuForge %}
+
+- **GitHub Repository:** [https://github.com/paiikarthik/MenuForge](https://github.com/paiikarthik/MenuForge)
+- **License:** MIT License
+- **Test Suite:** 7 automated test suites verifying API health, sample endpoints, heuristic allergen extraction, SQLite CRUD, and exports (`pytest tests -v` with 100% pass rate).
+
+---
+
+## How I Built It
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[Dish Ticket + Plating Photo] --> B[FastAPI Web Server]
     B --> C{Ollama Available?}
-    C -->|Yes: Local Open Weights| D[Ollama Engine: Llama 3.2 / Qwen 2.5 / LLaVA]
-    C -->|No: Offline Fallback| E[Culinary Fixture & Heuristic Engine]
+    C -->|Yes| D[Local Open Weights: Llama 3.2 / Qwen 2.5 / LLaVA]
+    C -->|No| E[Zero-Download Heuristic Engine]
     D --> F[Structured JSON Menu Cards]
     E --> F
     F --> G[(Local SQLite: menuforge.db)]
@@ -77,25 +85,25 @@ flowchart TD
     H --> L[📥 POS Export: JSON / Markdown]
 ```
 
-### The Architecture & Open Stack
-- **Backend:** FastAPI (Python 3.13) + SQLite for local persistence.
-- **Vision Processing:** Pillow (PIL) for local image thumbnailing, edge enhancement, and base64 encoding without external network dependencies.
-- **Inference Engine:** [Ollama](https://ollama.com) connecting to open-weight models (`llama3.2:3b`, `qwen2.5:3b`, `llava:7b`).
-- **Offline Heuristic Engine:** Rule-based allergen pattern matching across 9 allergen families, dietary suitability inference, and phonetic syllable splitting when running offline.
-- **Frontend:** Zero-framework, lightweight vanilla HTML5/CSS3/JavaScript with an artisanal dark ink/moss/brass aesthetic (Fraunces & Sora typography).
-- **Speech Synthesis:** Browser-native Web Speech API (`window.speechSynthesis`) providing instant audio pronunciation for front-of-house staff training.
+### The Open Stack:
+- **Local Inference & Open Weights:** Powered by [Ollama](https://ollama.com). MenuForge auto-detects installed models via `/api/health`, supporting `llama3.2:3b`, `qwen2.5:3b`, `gemma2:2b`, and `llava:7b` (for plating photo vision analysis).
+- **Zero-Download Heuristic Fallback:** Rule-based allergen pattern matching across 9 allergen families (dairy, shellfish, tree nuts, wheat/gluten, soy, sesame, etc.), dietary suitability inference, and phonetic syllable splitting.
+- **Backend:** FastAPI (Python 3.13) + SQLite for local database persistence (`data/menuforge.db`).
+- **Vision Pre-processing:** Pillow (PIL) for local image thumbnailing, edge enhancement, and base64 encoding without external network dependencies.
+- **Frontend:** Zero-framework, lightweight vanilla HTML5, CSS3 (ink/moss/brass palette with Fraunces & Sora typography), and JavaScript.
+- **Speech Synthesis:** Browser-native Web Speech API (`window.speechSynthesis`) providing instant audio pronunciation for front-of-house waitstaff training.
 - **QR Code Generation:** Zero-dependency, client-side SVG QR code generator (`static/qrcode.min.js`) rendering crisp vector QR codes that scale perfectly on physical print cards.
 - **Print Optimization:** Dedicated `@media print` CSS producing clean cardstock table talkers and pocket guides without UI chrome.
 
 ---
 
-## 💡 Why Open Innovation Matters (And Why Closed APIs Fail Here)
+## Why Does Open Innovation Matter?
 
-This project exists because closed-source cloud AI APIs (like OpenAI GPT-4 or Anthropic Claude) create structural economic and operational barriers for neighborhood restaurants:
+This project exists because closed-source cloud AI APIs (like OpenAI GPT-4 or Anthropic Claude) create structural economic, operational, and privacy barriers for neighborhood restaurants:
 
 ### 1. The $0 Marginal Cost Math
-Independent restaurants cannot stomach volatile, metered API billing. If an operator updates their chalkboard specials 4 times a week, tests 5 variations, and regenerates descriptions for 30 menu items, closed API token fees quickly tally up to \$10–\$25 a month—destroying the profit margins of a low-cost side hustle.  
-With open weights (`llama3.2:3b` or `qwen2.5:3b` running via Ollama), after the one-time model pull, **marginal inference cost is exactly \$0.00**. You can run 10,000 generations on a laptop or refurbished \$120 mini-PC without incurring a single penny of cloud spend.
+Independent restaurants cannot stomach volatile, metered API billing. If an operator updates their chalkboard specials 4 times a week, tests 5 variations, and regenerates descriptions for 30 menu items, closed API token fees quickly tally up to $10–$25 a month—destroying the profit margins of a low-cost side hustle.  
+With open weights (`llama3.2:3b` or `qwen2.5:3b` running via Ollama), after the one-time model pull, **marginal inference cost is exactly $0.00**. You can run 10,000 generations on a laptop or refurbished $120 mini-PC without incurring a single penny of cloud spend.
 
 ### 2. Complete Recipe Privacy & Secret Spice Blends
 Heirloom family recipes, proprietary spice-blend proportions, and unreleased seasonal dishes are the restaurant's most valuable intellectual property. Restaurant owners are rightfully paranoid about uploading their recipes or plating prototypes to cloud servers that could ingest their data into training pipelines. With MenuForge, everything stays locked to `127.0.0.1`.
@@ -104,17 +112,28 @@ Heirloom family recipes, proprietary spice-blend proportions, and unreleased sea
 Prep kitchens and walk-in coolers are notorious cellular dead zones with spotty Wi-Fi. A cloud-dependent SaaS tool fails when the kitchen internet cuts out during a busy dinner rush. Open-weight models running on the local host machine operate with 100% reliability, zero latency, and zero internet connection required.
 
 ### 4. Niche Cultural Domain Control & Fine-Tuning
-Generic cloud models are aggressively RLHF-tuned toward Western culinary vernacular, frequently flattening indigenous ingredients (e.g., mistaking Tulu *Byadgi* chili for standard cayenne, or erasing *niter kibbeh* as plain butter). Open-weight models allow local developers to customize system prompts, temperature profiles, and eventually fine-tune custom LoRAs on a restaurant's specific culinary archive.
+Generic cloud models are aggressively RLHF-tuned toward Western culinary vernacular, frequently flattening indigenous ingredients (e.g., mistaking Tulu *Byadgi* chili for standard cayenne, or erasing *niter kibbeh* as plain butter). Open-weight models allow local developers to customize system prompts, temperature profiles, and fine-tune custom LoRAs on a restaurant's specific culinary archive.
 
 ---
 
-## 🤝 First User Validation & Case Study (Bonus Points)
+## My Agent Session
+
+This project was built pair programming with Google DeepMind's **Antigravity** agent.
+- Antigravity helped architect the full-stack system from scratch, writing the FastAPI backend, the dynamic Ollama client with auto-model discovery, the fallback heuristic engine, and the SQLite persistence layer.
+- When designing the server training features, we integrated the browser-native Web Speech API so front-of-house staff could click 🔊 **"Listen"** to hear accurate pronunciations.
+- To make table tents ready for real tables without external network dependencies, we implemented a zero-dependency client-side vector SVG QR code generator in vanilla JavaScript.
+- Antigravity also built an end-to-end automated test suite (`tests/test_menuforge.py`) verifying API health, sample fixtures, allergen heuristics, database migrations, and static file delivery.
+
+---
+
+## My First User
 
 To test whether real restaurateurs would actually pay for this, I brought MenuForge to **Ananya and Chef Shekar**, operators of *Coastal Leaf*, a local independent kitchen specializing in coastal Karnataka and Mangalorean cuisine.
 
-### The Initial Walkthrough
-Before MenuForge, their printed menu called their star dish *Kori Gassi* "Chicken Coconut Curry" because their previous menu printer told them "non-Indian guests won't know what Kori Gassi is." Their servers spent half their time answering the same two questions: *"Is this spicy?"* and *"Does this have dairy?"*
+### The Problem Before MenuForge
+Their printed menu called their star dish *Kori Gassi* "Chicken Coconut Curry" because their previous menu printer told them "non-Indian guests won't know what Kori Gassi is." Their servers spent half their time answering the same two questions: *"Is this spicy?"* and *"Does this have dairy?"*
 
+### The Walkthrough
 We opened MenuForge on a laptop at their prep pass, loaded *Kori Gassi*, entered their notes (Byadgi chili, fresh grated roasted coconut, tamarind, curry leaves, grandmother's Sunday feast recipe), and forged the cards.
 
 ### The Reaction
@@ -133,17 +152,6 @@ We opened MenuForge on a laptop at their prep pass, loaded *Kori Gassi*, entered
 
 ---
 
-## 📈 The Side Hustle Blueprint
+## Prize Categories
 
-MenuForge is structured as a turnkey local side hustle:
-- **Target:** 30–50 independent, ethnic, and food-truck operators in your city.
-- **Pricing:** **$49 one-time setup** (digitizing 20 core dishes + table tents) + **$15/month** (weekly seasonal specials + POS updates).
-- **Unit Economics:** Servicing 20 local restaurants yields **$300/month in recurring revenue** plus setup fees, with virtually **0% hosting or token expenses** thanks to local open weights.
-
----
-
-## 📦 Source Code & License
-
-- **License:** MIT License
-- **Repository:** [https://github.com/paiikarthik/MenuForge](https://github.com/paiikarthik/MenuForge)
-- **Local Endpoint:** `http://127.0.0.1:8765`
+- **Primary Track:** Side Hustle (Build something with open-weight models or open-source AI that someone would actually pay for).
