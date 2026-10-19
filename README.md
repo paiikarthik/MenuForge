@@ -50,8 +50,8 @@ Neighborhood ethnic restaurants operate on razor-thin margins (3%–9%). When an
 ### 1. Install Dependencies
 
 ```bash
-git clone https://github.com/your-username/menuforge.git
-cd menuforge
+git clone https://github.com/paiikarthik/MenuForge.git
+cd MenuForge
 pip install -r requirements.txt
 ```
 

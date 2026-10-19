@@ -35,8 +35,8 @@ You can run MenuForge completely offline in under 60 seconds:
 
 ```bash
 # 1. Clone & install dependencies
-git clone https://github.com/your-username/menuforge.git
-cd menuforge
+git clone https://github.com/paiikarthik/MenuForge.git
+cd MenuForge
 pip install -r requirements.txt
 
 # 2. Generate sample art badges & seed demo database
@@ -145,5 +145,5 @@ MenuForge is structured as a turnkey local side hustle:
 ## 📦 Source Code & License
 
 - **License:** MIT License
-- **Repository:** *Add your public repository link here*
+- **Repository:** [https://github.com/paiikarthik/MenuForge](https://github.com/paiikarthik/MenuForge)
 - **Local Endpoint:** `http://127.0.0.1:8765`
